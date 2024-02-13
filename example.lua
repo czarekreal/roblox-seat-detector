@@ -3,13 +3,13 @@ local core = require(script.Parent.Core)
 local callback = core.sit.callback(
 	
 	--function when player sits
-	function()
-		print('sitted')
+	function(plr)
+		print(plr.Name..' has sitted')
 	end, 
 	
 	--function when player exit seat
-	function()
-	    print('exited')
+	function(plr)
+	    print(plr.Name..' has exited')
 	end
 	
 	,script.Parent.Parent)
@@ -18,12 +18,12 @@ local callback = core.sit.callback(
 local callback2 = core.sit.callback(
 
 	--function when player sits
-	function()
+	function(plr)
 		print('wow second function on a single detector')
 	end, 
 
 	--function when player exit seat
-	function()
+	function(plr)
 		print('exited wow thats crazy')
 	end
 
