@@ -8,6 +8,7 @@ local module = {
 			tasks_tab[id] = true
 			spawn(function()
 				local is_sit = false
+				local occupant = nil
 				while tasks_tab[id] == true do
 					if is_sit == true then
 						repeat wait()
@@ -16,7 +17,8 @@ local module = {
 							return
 						end
 						is_sit = false
-						func2()
+						func2(occupant)
+						occupant = nil
 					else
 						repeat wait()
 						until seat.Occupant
@@ -24,7 +26,8 @@ local module = {
 							return
 						end
 						is_sit = true
-						func1()
+						occupant = game.Players:GetPlayerFromCharacter(seat.Occupant.Parent)
+						func1(occupant)
 					end
 			    end
 			end)
